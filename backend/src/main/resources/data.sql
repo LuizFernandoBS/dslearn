@@ -26,3 +26,6 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, external_L
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capítulo 1', 'Neste capítulo vamos comecar', 1, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 1L, null);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capítulo 2', 'Neste capítulo vamos continuar', 2, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 1L, 1L);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capítulo 3', 'Neste capítulo vamos finalizar', 3, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 1L, 2L);
+
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES(1L, 1L, TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', null, true, false);
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES(2L, 1L, TIMESTAMP WITH TIME ZONE '2020-07-14T20:50:07.12345Z', null, true, false);
