@@ -18,3 +18,7 @@ INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Bootcamp HTML', 'ht
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', TIMESTAMP WITH TIME ZONE '2021-07-13T20:50:07.12345Z', 1L);
 
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Accepted task', TIMESTAMP WITH TIME ZONE '2020-07-13T20:50:07.12345Z', true, 'Lorem Ipsum', 1L);
+
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id) VALUES ('Trilha HTML', 'Trilha principal do curso', 1, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 1, 'Loren ipsum', 1L);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id) VALUES ('Forum', 'Tire suas dúvidas', 2, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 2, 'Loren ipsum', 1L);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id) VALUES ('Lives', 'Lives exclusivas para a turma', 3, 'https://foundr.com/wp-content/uploads/2023/04/How-to-create-an-online-course.jpg.webp', 0, 'Loren ipsum', 1L);
