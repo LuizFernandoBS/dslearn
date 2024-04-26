@@ -5,6 +5,8 @@ import com.devsuperior.dslearnbds.entities.pk.EnrollmentPK;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -20,6 +22,9 @@ public class Enrollment implements Serializable {
     private Instant refundMoment;
     private boolean available;
     private boolean onlyUpdate;
+
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private List<Lesson> lessonsDone = new ArrayList<>();
 
     public Enrollment() {
     }
@@ -82,5 +87,7 @@ public class Enrollment implements Serializable {
         this.onlyUpdate = onlyUpdate;
     }
 
-
+    public List<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
 }
