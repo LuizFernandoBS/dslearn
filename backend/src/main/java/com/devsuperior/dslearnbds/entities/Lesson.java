@@ -28,6 +28,12 @@ public abstract class Lesson {
             @JoinColumn(name = "offer_id")})
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
 
+    @OneToMany(mappedBy = "lesson")
+    private Set<Deliver> deliveries = new HashSet<>();
+
+    @OneToMany(mappedBy = "lesson")
+    private Set<Topic> topics = new HashSet<>();
+
     public Lesson() {
     }
 
@@ -72,6 +78,14 @@ public abstract class Lesson {
 
     public Set<Enrollment> getEnrollmentsDone() {
         return enrollmentsDone;
+    }
+
+    public Set<Deliver> getDeliveries() {
+        return deliveries;
+    }
+
+    public Set<Topic> getTopics() {
+        return topics;
     }
 
     @Override
