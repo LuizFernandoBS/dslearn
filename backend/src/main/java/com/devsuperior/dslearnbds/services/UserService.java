@@ -3,6 +3,7 @@ package com.devsuperior.dslearnbds.services;
 import com.devsuperior.dslearnbds.dtos.UserDTO;
 import com.devsuperior.dslearnbds.entities.User;
 import com.devsuperior.dslearnbds.repositories.UserRepository;
+import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
 import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,12 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private AuthService authService;
+
     @Transactional(readOnly = true)
     public UserDTO findById(Long id) {
+        authService.validateSelfOrAdmin(id);
         Optional<User> obj = repository.findById(id);
         User user = obj.orElseThrow(() ->
                 new ResourceNotFoundException("Entity not found " + id));

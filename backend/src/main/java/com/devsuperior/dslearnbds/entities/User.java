@@ -1,5 +1,6 @@
 package com.devsuperior.dslearnbds.entities;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -121,5 +122,15 @@ public class User implements UserDetails, Serializable {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public boolean hasRole(String roleName) {
+        for (Role role : this.getRoles()) {
+            if (StringUtils.equals(role.getAuthority().toUpperCase(),
+                    roleName.toUpperCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
