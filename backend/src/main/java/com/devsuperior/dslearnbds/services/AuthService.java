@@ -38,8 +38,8 @@ public class AuthService {
                 new ResourceNotFoundException("Entity not found " + id));
         User loggedUser = this.authenticated();
 
-        if (!loggedUser.getId().equals(user.getId()) &&
-                !user.hasRole("ROLE_ADMIN")) {
+        if (!loggedUser.getId().equals(user.getId())
+                && !loggedUser.hasRole("ROLE_ADMIN")) {
             throw new ForbiddenException("Acces denied");
         }
     }
